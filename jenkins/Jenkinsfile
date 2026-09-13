@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        GITHUB_REPO_URL = 'https://github.com/nisa2003-ops/Lanka-Microjob-Final.git'
+        GITHUB_REPO_URL = 'https://github.com/nisa2003-ops/Lanka-Microjob-V1.git'
         GITHUB_BRANCH   = 'main'
         GITHUB_CREDS_ID = 'github-pat'
 
