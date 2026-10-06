@@ -40,3 +40,8 @@ phases:
       - docker push $ECR_BASE/lanka-microjob-frontend:$IMAGE_TAG
 
       - echo "All images pushed successfully."
+      - echo "$IMAGE_TAG" > image-tag.txt
+  artifacts:
+  files:
+    - image-tag.txt
+    - scripts/deploy-k3s.sh
