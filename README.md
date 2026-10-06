@@ -3,7 +3,7 @@
 ## Project Overview
 
 Lanka MicroJob is a service-oriented, microservice-based platform for connecting employers, workers,
-and brokers for short term and daily-wage work in Sri Lanka. Employers publish jobs, workers apply for
+and brokers for short term and daily wage work in Sri Lanka. Employers publish jobs, workers apply for
 them, and approved brokers can represent workers who do not use the application directly. An
 administrator reviews user and broker registrations and moderates the platform.
 
