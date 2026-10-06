@@ -41,7 +41,8 @@ phases:
 
       - echo "All images pushed successfully."
       - echo "$IMAGE_TAG" > image-tag.txt
-  artifacts:
+
+artifacts:
   files:
     - image-tag.txt
     - scripts/deploy-k3s.sh
