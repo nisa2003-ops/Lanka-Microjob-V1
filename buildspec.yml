@@ -1,0 +1,42 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_DEFAULT_REGION: "ap-southeast-2"
+
+phases:
+
+  pre_build:
+    commands:
+      - echo "Logging in to Amazon ECR..."
+      - AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+      - ECR_BASE=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_BASE
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - echo "Image tag = $IMAGE_TAG"
+
+  build:
+    commands:
+      - echo "Building Lanka MicroJob Docker images..."
+
+      - docker build -t $ECR_BASE/lanka-microjob-user-service:$IMAGE_TAG ./user-service
+      - docker build -t $ECR_BASE/lanka-microjob-job-service:$IMAGE_TAG ./job-service
+      - docker build -t $ECR_BASE/lanka-microjob-matching-service:$IMAGE_TAG ./matching-service
+      - docker build -t $ECR_BASE/lanka-microjob-broker-service:$IMAGE_TAG ./broker-service
+      - docker build -t $ECR_BASE/lanka-microjob-notification-service:$IMAGE_TAG ./notification-service
+      - docker build -t $ECR_BASE/lanka-microjob-api-gateway:$IMAGE_TAG ./api-gateway
+      - docker build -t $ECR_BASE/lanka-microjob-frontend:$IMAGE_TAG ./frontend
+
+  post_build:
+    commands:
+      - echo "Pushing Docker images to Amazon ECR..."
+
+      - docker push $ECR_BASE/lanka-microjob-user-service:$IMAGE_TAG
+      - docker push $ECR_BASE/lanka-microjob-job-service:$IMAGE_TAG
+      - docker push $ECR_BASE/lanka-microjob-matching-service:$IMAGE_TAG
+      - docker push $ECR_BASE/lanka-microjob-broker-service:$IMAGE_TAG
+      - docker push $ECR_BASE/lanka-microjob-notification-service:$IMAGE_TAG
+      - docker push $ECR_BASE/lanka-microjob-api-gateway:$IMAGE_TAG
+      - docker push $ECR_BASE/lanka-microjob-frontend:$IMAGE_TAG
+
+      - echo "All images pushed successfully."
