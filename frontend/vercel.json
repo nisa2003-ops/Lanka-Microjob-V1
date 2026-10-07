@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  {
   "rewrites": [
     {
       "source": "/auth/:path*",
@@ -17,17 +18,24 @@
       "source": "/matches/:path*",
       "destination": "http://3.104.63.54:30900/matches/:path*"
     },
+
+    {
+      "source": "/brokers",
+      "destination": "http://3.104.63.54:30900/brokers"
+    },
     {
       "source": "/brokers/:path*",
       "destination": "http://3.104.63.54:30900/brokers/:path*"
     },
+
+    {
+      "source": "/notifications",
+      "destination": "http://3.104.63.54:30900/notifications"
+    },
     {
       "source": "/notifications/:path*",
       "destination": "http://3.104.63.54:30900/notifications/:path*"
-    },
-    {
-      "source": "/api-docs/:path*",
-      "destination": "http://3.104.63.54:30900/api-docs/:path*"
     }
   ]
+}
 }
