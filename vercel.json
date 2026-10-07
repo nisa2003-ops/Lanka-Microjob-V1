@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/auth/:path*",
+      "destination": "http://3.104.63.54:30900/auth/:path*"
+    },
+    {
+      "source": "/jobs/:path*",
+      "destination": "http://3.104.63.54:30900/jobs/:path*"
+    },
+    {
+      "source": "/applications/:path*",
+      "destination": "http://3.104.63.54:30900/applications/:path*"
+    },
+    {
+      "source": "/matches/:path*",
+      "destination": "http://3.104.63.54:30900/matches/:path*"
+    },
+    {
+      "source": "/brokers/:path*",
+      "destination": "http://3.104.63.54:30900/brokers/:path*"
+    },
+    {
+      "source": "/notifications/:path*",
+      "destination": "http://3.104.63.54:30900/notifications/:path*"
+    },
+    {
+      "source": "/api-docs/:path*",
+      "destination": "http://3.104.63.54:30900/api-docs/:path*"
+    }
+  ]
+}
