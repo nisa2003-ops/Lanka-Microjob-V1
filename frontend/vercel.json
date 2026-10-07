@@ -5,10 +5,16 @@
       "source": "/auth/:path*",
       "destination": "http://32.236.121.127:30900/auth/:path*"
     },
+
+    {
+      "source": "/jobs",
+      "destination": "http://32.236.121.127:30900/jobs"
+    },
     {
       "source": "/jobs/:path*",
       "destination": "http://32.236.121.127:30900/jobs/:path*"
     },
+
     {
       "source": "/applications/:path*",
       "destination": "http://32.236.121.127:30900/applications/:path*"
@@ -17,6 +23,7 @@
       "source": "/matches/:path*",
       "destination": "http://32.236.121.127:30900/matches/:path*"
     },
+
     {
       "source": "/brokers",
       "destination": "http://32.236.121.127:30900/brokers"
@@ -25,6 +32,7 @@
       "source": "/brokers/:path*",
       "destination": "http://32.236.121.127:30900/brokers/:path*"
     },
+
     {
       "source": "/notifications",
       "destination": "http://32.236.121.127:30900/notifications"
