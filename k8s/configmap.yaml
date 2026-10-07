@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: lanka-microjob-config
 data:
-  SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lanka_microjob
+  SPRING_DATASOURCE_URL: jdbc:postgresql://lanka-microjob-db.cn4ic2y4yrbu.ap-southeast-2.rds.amazonaws.com:5432/lanka_microjob
   SPRING_JPA_DDL_AUTO: update
   JWT_EXPIRATION: "28800000"
   CORS_ALLOWED_ORIGINS: http://localhost:30300,http://localhost:30900,http://32.236.121.127:30300,https://lanka-microjob.vercel.app
